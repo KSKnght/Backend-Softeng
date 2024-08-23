@@ -32,6 +32,7 @@ model project {
   endDate DateTime @db.Date
   clientID Int
   client client @relation(fields: [clientID], references: [id])
+  progress progessField
 
   phase phase[]
 }
@@ -68,24 +69,25 @@ model phaseTasks {
   deadline DateTime @db.Date
 
   phase phase @relation(fields: [phaseID], references: [id])
-  taskSubcon taskSubcon[]
+  subcon subCon[]
+  taskMat taskMat[]
 }
 
 model subCon {
   id Int @id @default(autoincrement())
   Name String @db.VarChar(40)
 
-  taskSubcon taskSubcon[]
+  phaseTasks phaseTasks[]
 }
 
-model taskSubcon {
-  id Int @id @default(autoincrement())
-  subID Int
-  phaseTaskId Int
+// model taskSubcon {
+//   id Int @id @default(autoincrement())
+//   subID Int
+//   phaseTaskId Int
 
-  subCon subCon @relation(fields: [subID], references: [id])
-  phaseTasks phaseTasks @relation(fields: [phaseTaskId], references: [id])
-}
+//   subCon subCon @relation(fields: [subID], references: [id])
+//   phaseTasks phaseTasks @relation(fields: [phaseTaskId], references: [id])
+// }
 
 //materials
 model supplier {
@@ -101,6 +103,8 @@ model materials {
   supplierName String
 
   supplier supplier @relation(fields: [supplierName], references: [supplierName])
+  taskMat taskMat[]
+
 }
 
 // for overview of all materials in all tasks in one project
@@ -109,6 +113,7 @@ model projMat {
   projId Int
   matId Int
   totalQty Float
+  usedQty Float
   unit unit
 }
 
@@ -119,6 +124,9 @@ model taskMat {
   matId Int
   qty Float
   unit unit
+
+  materials materials @relation(fields: [matId], references: [id])
+  phaseTasks phaseTasks @relation(fields: [taskId], references: [id])
 }
 
 enum unit {
