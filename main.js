@@ -2,6 +2,7 @@ import express, { json } from 'express'
 import cors from 'cors'
 import projectRoute from './Routes/Project.js';
 import phaseRoute from './Routes/Phase.js';
+import clientRoute from './Routes/Client.js';
 
 const app = express();
 app.use(express.json());
@@ -15,3 +16,5 @@ app.listen(port);
 app.use('/projects', projectRoute);
 
 app.use('/phase', phaseRoute);
+
+app.use('/clients', clientRoute)

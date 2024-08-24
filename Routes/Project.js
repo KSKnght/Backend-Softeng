@@ -3,7 +3,7 @@ import { addProject, editProject, readProject, updProjProgress, viewOneProject }
 
 const projectRoute = Router()
 
-projectRoute.get('/add', addProject);
+projectRoute.post('/add', addProject);
 
 projectRoute.post('/:id/edit', editProject);
 

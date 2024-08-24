@@ -22,7 +22,7 @@ export const editClient = async (req, res) => {
     try { 
         await prisma.client.update({
             where: {
-                id: req.body.clientId
+                id: Number(req.params.id)
             },
             data: {
                 firstname: req.body.firstname,
@@ -47,7 +47,9 @@ export const readClients = async (req, res) => {
 export const readOneClient = async (req, res) => {
     const client = await prisma.client.findFirst({
         where: {
-            id: req.body.id
+            id: Number(req.params.id)
         }
     })
+
+    res.status(200).json(client)
 }
