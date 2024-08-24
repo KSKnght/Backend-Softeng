@@ -5,9 +5,9 @@ const projectRoute = Router()
 
 projectRoute.get('/add', addProject);
 
-projectRoute.get('/edit', editProject);
+projectRoute.post('/edit', editProject);
 
-projectRoute.get('/progressUpd', updProjProgress);
+projectRoute.post('/progressUpd', updProjProgress);
 
 projectRoute.get('/read', readProject);
 
