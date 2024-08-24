@@ -57,3 +57,9 @@ export const updProjProgress = async (req, res) => {
 
     }
 }
+
+export const readProject = async (req, res) => {
+    const display = await prisma.project.findMany({})
+
+    res.status(200).json(display);
+}

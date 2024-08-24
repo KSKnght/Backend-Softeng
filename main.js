@@ -14,4 +14,4 @@ app.listen(port);
 
 app.use('/projects', projectRoute);
 
-app.use('/phase/', phaseRoute);
+app.use('/phase', phaseRoute);
