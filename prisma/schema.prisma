@@ -26,7 +26,7 @@ model client {
 
 model project {
   id Int @id @default(autoincrement())
-  type String @db.VarChar(40)
+  type projectType
   projectAddress String @db.VarChar(40)
   startDate DateTime @db.Date
   endDate DateTime @db.Date

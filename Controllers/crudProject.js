@@ -28,7 +28,7 @@ export const editProject = async (req, res) => {
     try {
         await prisma.project.update({
             where: {
-                id: req.body.projID
+                id: Number(req.params.id)
             },
             data: {
                 projectAddress: req.body.address,
@@ -46,7 +46,7 @@ export const updProjProgress = async (req, res) => {
     try {
         await prisma.project.update({
             where: {
-                id: req.body.projID
+                id: Number(req.params.id)
             },
             data: {
                 progress: req.body.progress
@@ -62,4 +62,25 @@ export const readProject = async (req, res) => {
     const display = await prisma.project.findMany({})
 
     res.status(200).json(display);
+}
+
+export const viewOneProject = async (req, res) => {
+    const project = await prisma.project.findFirst({
+        where: {
+            id: Number(req.params.id)
+        },
+        include: {
+            client: {
+                select: {
+                    lastname: true,
+                    firstname: true,
+                    middlename: true,
+                    contactNum: true,
+                    emailAdd: true
+                }
+            }
+        }
+    })
+
+    res.status(200).json(project)
 }
