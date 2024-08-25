@@ -49,5 +49,4 @@ export const removeSupplier = async (req, res) => {
     catch {
 
     }
-
 }
