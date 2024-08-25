@@ -10,11 +10,7 @@ tasksRoute.post('/:id/edit', editTask);
 tasksRoute.post('/:id/status', statusTask);
 
 tasksRoute.post('/:id/remove', removeTask);
-<<<<<<< HEAD
 
-=======
-webkitURL
->>>>>>> bfba3d6 (test)
 tasksRoute.post('/:id/conMatTask', connectMaterialsTasks);
 
 tasksRoute.post('/:id/removeMatTask', removeMaterialsTasks);
