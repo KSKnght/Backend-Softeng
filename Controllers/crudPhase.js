@@ -68,5 +68,7 @@ export const projectPhase = async (req, res) => {
         where: {
             projectID: Number(req.params.id)
         }
-    })
+    });
+
+    res.status(200).json(data)
 }
