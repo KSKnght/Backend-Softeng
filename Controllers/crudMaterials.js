@@ -34,7 +34,7 @@ export const editMaterials = async (req, res) => {
 
 // for project overview
 export const removeMaterialsProject = async (req, res) => {
-    
+
 }
 
 // for project overview
@@ -44,6 +44,8 @@ export const connectMaterialsProject = async (req, res) => {
 
 
 export const showMaterials = async (req, res) => {
-    
+    const data = await prisma.materials.findMany({})
+
+    res.status(200).json(data)
 }
 

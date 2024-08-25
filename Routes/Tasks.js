@@ -3,8 +3,6 @@ import { addTask, connectMaterialsTasks, connectSubcon, editTask, removeMaterial
 
 const tasksRoute = Router()
 
-tasksRoute.post('/add', addTask);
-
 tasksRoute.post('/:id/edit', editTask);
 
 tasksRoute.post('/:id/status', statusTask);
