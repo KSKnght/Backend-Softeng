@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 // create the phase then atuo connect to project
 export const addPhase = async (req, res) => {
-    
+
 }
 
 export const editPhase = async (req, res) => {
