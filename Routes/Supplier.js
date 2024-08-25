@@ -9,4 +9,6 @@ supplierRoute.post('/:id/edit', editSupplier);
 
 supplierRoute.post('/:id/remove', removeSupplier);
 
+supplierRoute.get('/read',)
+
 export default supplierRoute;

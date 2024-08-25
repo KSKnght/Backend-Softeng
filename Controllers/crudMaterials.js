@@ -23,6 +23,6 @@ export const connectMaterialsProject = async (req, res) => {
 
 
 export const showMaterials = async (req, res) => {
-
+    
 }
 
