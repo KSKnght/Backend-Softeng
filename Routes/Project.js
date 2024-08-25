@@ -1,10 +1,12 @@
 import { Router } from "express";
 import { addProject, editProject, readProject, updProjProgress, viewOneProject } from "../Controllers/crudProject.js";
-import { projectPhase } from "../Controllers/crudPhase.js";
+import { addPhase, projectPhase } from "../Controllers/crudPhase.js";
 
 const projectRoute = Router()
 
 projectRoute.post('/add', addProject);
+
+projectRoute.post('/:id/create', addPhase);
 
 projectRoute.post('/:id/edit', editProject);
 

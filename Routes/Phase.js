@@ -3,8 +3,6 @@ import { addPhase, editPhase, readOnePhase, removePhase, statusPhase } from "../
 
 const phaseRoute = Router()
 
-phaseRoute.post('/create', addPhase);
-
 phaseRoute.post('/:id/edit', editPhase);
 
 phaseRoute.post('/:id/remove', removePhase);
