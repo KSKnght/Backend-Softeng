@@ -23,7 +23,7 @@ export const addSupplier = async (req, res) => {
 
 export const editSupplier = async (req, res) => {
     try {
-        await prisma.client.update({
+        await prisma.supplier.update({
             where: {
                 id: Number(req.params.id)
             },
@@ -40,7 +40,7 @@ export const editSupplier = async (req, res) => {
 
 export const removeSupplier = async (req, res) => {
     try {
-        await prisma.client.delete({
+        await prisma.supplier.delete({
             where: {
                 id: Number(req.params.id)
             }
