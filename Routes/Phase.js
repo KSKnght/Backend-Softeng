@@ -1,14 +1,17 @@
 import { Router } from "express";
+import { addPhase, editPhase, readOnePhase, removePhase, statusPhase } from "../Controllers/crudPhase.js";
 
 const phaseRoute = Router()
 
-// phaseRoute.get('/add', addProject);
+phaseRoute.post('/create', addPhase);
 
-// phaseRoute.get('/update', addProject);
+phaseRoute.post('/:id/edit', editPhase);
 
-// phaseRoute.get('/remove', addProject);
+phaseRoute.post('/:id/remove', removePhase);
 
-// phaseRoute.get('/status', addProject);
+phaseRoute.post('/:id/status', statusPhase);
+
+phaseRoute.get('/:id/show', readOnePhase);
 
 
 export default phaseRoute;
