@@ -56,6 +56,36 @@ export const readOnePhase = async (req, res) => {
     const data = await prisma.phase.findFirst({
         where: {
             id: Number(req.params.id)
+        },
+        include: {
+            phaseTasks: {
+                select: {
+                    taskName: true,
+                    description: true,
+                    progress: true,
+                    deadline: true,
+
+                    subcon: {
+                        select: {
+                            Name: true
+                        }
+                    },
+
+                    taskMat: {
+                        select: {
+                            qty: true,
+                            unit: true,
+
+                            materials: {
+                                select: {
+                                    name: true,
+                                    supplierName: true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     });
 
@@ -67,6 +97,36 @@ export const projectPhase = async (req, res) => {
     const data = await prisma.phase.findMany({
         where: {
             projectID: Number(req.params.id)
+        },
+        include: {
+            phaseTasks: {
+                select: {
+                    taskName: true,
+                    description: true,
+                    progress: true,
+                    deadline: true,
+
+                    subcon: {
+                        select: {
+                            Name: true
+                        }
+                    },
+
+                    taskMat: {
+                        select: {
+                            qty: true,
+                            unit: true,
+
+                            materials: {
+                                select: {
+                                    name: true,
+                                    supplierName: true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     });
 
