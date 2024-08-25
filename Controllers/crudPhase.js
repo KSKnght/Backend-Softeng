@@ -20,10 +20,13 @@ export const statusPhase = async (req, res) => {
 
 }
 
+
+// loadup na tanan tasks, mat, and subcon diri
 export const readOnePhase = async (req, res) => {
 
 }
 
+// loadup na tanan tasks, mat, and subcon diri
 export const projectPhase = async (req, res) => {
     
 }
