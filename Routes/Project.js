@@ -6,7 +6,7 @@ const projectRoute = Router()
 
 projectRoute.post('/add', addProject);
 
-projectRoute.post('/:id/create', addPhase);
+projectRoute.post('/:id/createPhase', addPhase);
 
 projectRoute.post('/:id/edit', editProject);
 
